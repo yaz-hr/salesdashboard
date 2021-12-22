@@ -1,7 +1,7 @@
 
-# Interactive Dashboard with Python – Streamlit
+# Interactive POS Dashboard with Python – Streamlit
 
-Sales Dashboard built in Python and the Streamlit library to visualize Excel data.
+Sales Dashboard - Karachi Supertore built in Python and the Streamlit library to visualize the Excel POS data.
 
 ## Demo
 Sales Dashboard: https://dashboard-cis.herokuapp.com/
@@ -13,15 +13,18 @@ Sales Dashboard: https://dashboard-cis.herokuapp.com/
 
 ## Author
 
-- Sven from Coding Is Fun
-- YouTube: https://youtube.com/c/CodingIsFun
-- Website: https://pythonandvba.com
+- Yasir Ahmed s/o Atiq Ahmed
+- Class: BDA1
+- Institute: IBA
+- Batch: NAVTTC-2021
+- Email: mr.yasirahmed@gmail.com
+- Contact: +923152826411
 
 
 
 ## Feedback
 
-If you have any feedback, please reach out to me at contact@pythonandvba.com
+If you have any feedback, please reach out to me at +923152826411 (whatsapp)
 
 
 ![Logo](https://content.screencast.com/users/jubbel3/folders/Snagit/media/c42ea34b-4057-4754-96b0-e8e05c866afb/08.18.2021-19.56.png)
