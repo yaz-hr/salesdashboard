@@ -1,7 +1,6 @@
-# @Email:  contact@pythonandvba.com
-# @Website:  https://pythonandvba.com
-# @YouTube:  https://youtube.com/c/CodingIsFun
-# @Project:  Sales Dashboard w/ Streamlit
+# @Email:  mr.yasirahmed@gmail.com
+# @Website:  https://www.iba.edu.pk
+# @Project:  Sales Dashboard - Karachi Superstore w/ Streamlit
 
 
 
@@ -10,7 +9,7 @@ import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
+st.set_page_config(page_title="Sales Dashboard - Karachi Superstore", page_icon=":bar_chart:", layout="wide")
 
 # ---- READ EXCEL ----
 @st.cache
@@ -32,7 +31,7 @@ df = get_data_from_excel()
 # ---- SIDEBAR ----
 st.sidebar.header("Please Filter Here:")
 city = st.sidebar.multiselect(
-    "Select the City:",
+    "Select the Branch:",
     options=df["City"].unique(),
     default=df["City"].unique()
 )
@@ -49,12 +48,18 @@ gender = st.sidebar.multiselect(
     default=df["Gender"].unique()
 )
 
+payment_method = st.sidebar.multiselect(
+    "Select the Payment Method:",
+    options=df["Payment_Method"].unique(),
+    default=df["Payment_Method"].unique()
+)
+
 df_selection = df.query(
-    "City == @city & Customer_type ==@customer_type & Gender == @gender"
+    "City == @city & Customer_type ==@customer_type & Gender == @gender & Payment_Method == @payment_method"
 )
 
 # ---- MAINPAGE ----
-st.title(":bar_chart: Sales Dashboard")
+st.title(":bar_chart: Sales Dashboard - Karachi Superstore")
 st.markdown("##")
 
 # TOP KPI's
@@ -66,13 +71,13 @@ average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
     st.subheader("Total Sales:")
-    st.subheader(f"US $ {total_sales:,}")
+    st.subheader(f"PKR {total_sales:,}")
 with middle_column:
     st.subheader("Average Rating:")
     st.subheader(f"{average_rating} {star_rating}")
 with right_column:
     st.subheader("Average Sales Per Transaction:")
-    st.subheader(f"US $ {average_sale_by_transaction}")
+    st.subheader(f"PKR {average_sale_by_transaction}")
 
 st.markdown("""---""")
 
