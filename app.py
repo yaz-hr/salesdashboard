@@ -19,8 +19,8 @@ def get_data_from_excel():
         engine="openpyxl",
         sheet_name="Sales",
         skiprows=3,
-        usecols="B:R",
-        nrows=1000,
+        usecols="B:S",
+        nrows=2000,
     )
     # Add 'hour' column to dataframe
     df["hour"] = pd.to_datetime(df["Time"], format="%H:%M:%S").dt.hour
@@ -48,6 +48,12 @@ gender = st.sidebar.multiselect(
     default=df["Gender"].unique()
 )
 
+age_group = st.sidebar.multiselect(
+    "Select the Age Group:",
+    options=df["Age_Group"].unique(),
+    default=df["Age_Group"].unique()
+)
+
 payment_method = st.sidebar.multiselect(
     "Select the Payment Method:",
     options=df["Payment_Method"].unique(),
@@ -55,7 +61,7 @@ payment_method = st.sidebar.multiselect(
 )
 
 df_selection = df.query(
-    "City == @city & Customer_type ==@customer_type & Gender == @gender & Payment_Method == @payment_method"
+    "City == @city & Customer_type ==@customer_type & Gender == @gender & Age_Group == @age_group & Payment_Method == @payment_method"
 )
 
 # ---- MAINPAGE ----
